@@ -115,7 +115,7 @@ class Match:
 	def stopSignal(self):
 		print str(checkid)+"--"+str(self.id)
 		if checkid==self.id:
-			print "its this"
+			print "its this" 
 			self.status["over-ball"]="matchover"
 			GObject.source_remove(self.timer)
 
