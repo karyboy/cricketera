@@ -1,12 +1,13 @@
 import requests
 from bs4 import BeautifulSoup
 import threading 
-import pynotify
+from gi.repository import Gtk,Notify,GObject
 import re
 import sys,signal
 from xml.etree.ElementTree import XML as xmla
 
 url_extend='?view=live;wrappertype=live'
+checkid=0
 
 class Match:
 	def __init__(self,ele):
@@ -16,7 +17,11 @@ class Match:
 
 	def pollUrl(self):
 		self.scrape=BeautifulSoup(requests.get(self.url+url_extend).text)
-		
+	
+	def setId(self):
+		pattern=re.compile(r"([0-9]*)\.html")
+		self.id=re.search(pattern,self.ele.find('./guid').text).group(1)
+
 	def extractUrl(self):
 		if isinstance(self.ele,str):
 			self.url=self.ele
@@ -107,7 +112,12 @@ class Match:
 		except AttributeError:
 			print "att error"
 
-		#sys.exit(0)
+	def stopSignal(self):
+		print str(checkid)+"--"+str(self.id)
+		if checkid==self.id:
+			print "its this"
+			self.status["over-ball"]="matchover"
+			GObject.source_remove(self.timer)
 
 	def poll(self):
 		self.pollUrl()
@@ -117,47 +127,51 @@ class Match:
 		self.getActionPlayers()
 		self.getComms()
 		if self.status["over-ball"]!="matchover":
-			t=threading.Timer(20,self.poll)
-			t.start()
+			self.timer=GObject.timeout_add(5000,self.poll)
 		else:
-			sys.exit()
-
+			print "going"
+		
 	def getComms(self):
 		tmp=self.scrape.find("table",{"class":"commsTable"})
-		over=tmp.tr.td.p
-		tmp1=tmp.tr.find("span",{"class":"commsImportant"})
-		if self.status["statustext"].find("won")>-1:			# if match over
-			if(self.status["over-ball"]!="matchover"):
-				sendmessage(self.status["t1head"]+" vs "+self.status["t2head"],"<br>"+self.status["statustext"]+"<br>"+"match over")
-				self.status["over-ball"]="matchover"
+		print "polling"+"---"+self.status["t1head"]
+		try:
+			over=tmp.tr.td.p
+			tmp1=tmp.tr.find("span",{"class":"commsImportant"})
+			if self.status["statustext"].find("won")>-1:			# if match over
+				if(self.status["over-ball"]!="matchover"):
+					sendmessage(self.status["t1head"]+" vs "+self.status["t2head"],"<br>"+self.status["statustext"]+"<br>"+"match over")
+					self.status["over-ball"]="matchover"
 
 
-		else:
-			if tmp.tr.find("td",{"class":"endofover"})!=None:       # pop-up if end of over 
-				if(self.status["over-ball"]!="endofover"):
-					sendmessage(self.status["t1head"]+" vs "+self.status["t2head"],"<br>"+"end of over"+"<br>"+self.status["statustext"])
-					self.status["over-ball"]="endofover"
-		
-			if tmp1!=None:											# pop-up if important event
-				if(self.status["over-ball"]!=over.string):
-					self.status["over-ball"]=over.string
-					if tmp1.string=="OUT":
-						tmp2=tmp1.parent.parent.parent.next_sibling.next_sibling.find("p",{"class":"commsText"}).b.string
-						sendmessage(self.status["t1head"]+" vs "+self.status["t2head"],"<br>"+tmp1.string+" ( %s ) " % (tmp2)+"<br>"+self.status["statustext"])
-					else:
-						sendmessage(self.status["t1head"]+" vs "+self.status["t2head"],"<br>"+tmp1.string+" ( %s(%s,%s) - %s )" % (self.inaction["currentbats"]["name"],self.inaction["currentbats"]["runs"],self.inaction["currentbats"]["balls"],self.inaction["currentbowl"])+"<br>"+self.status["statustext"])
-		
-		
-			if over!=None:
-				if(self.status["over-ball"]!=over.string):
-					self.status["over-ball"]=over.string
-					print over.parent.string
 			else:
-				print "end of over"
+				if tmp.tr.find("td",{"class":"endofover"})!=None:       # pop-up if end of over 
+					if(self.status["over-ball"]!="endofover"):
+						sendmessage(self.status["t1head"]+" vs "+self.status["t2head"],"<br>"+"end of over"+"<br>"+self.status["statustext"])
+						self.status["over-ball"]="endofover"
+			
+				if tmp1!=None:											# pop-up if important event
+					if(self.status["over-ball"]!=over.string):
+						self.status["over-ball"]=over.string
+						if tmp1.string=="OUT":
+							tmp2=tmp1.parent.parent.parent.next_sibling.next_sibling.find("p",{"class":"commsText"}).b.string
+							sendmessage(self.status["t1head"]+" vs "+self.status["t2head"],"<br>"+tmp1.string+" ( %s ) " % (tmp2)+"<br>"+self.status["statustext"])
+						else:
+							sendmessage(self.status["t1head"]+" vs "+self.status["t2head"],"<br>"+tmp1.string+" ( %s(%s,%s) - %s )" % (self.inaction["currentbats"]["name"],self.inaction["currentbats"]["runs"],self.inaction["currentbats"]["balls"],self.inaction["currentbowl"])+"<br>"+self.status["statustext"])
+			
+			
+				if over!=None:
+					if(self.status["over-ball"]!=over.string):
+						self.status["over-ball"]=over.string
+						print over.parent.string+"---"+self.status["t1head"]
+				else:
+					print "end of over"+"---"+self.status["t1head"]
+		except AttributeError:
+			print "Attribute error"
 
 	def boot(self):
 		if(self.status["booted"]==False):	# first time boot
 			self.extractUrl()
+			self.setId()
 			self.pollUrl()
 			self.extractTeams()
 			self.matchStatus()
@@ -166,38 +180,77 @@ class Match:
 			self.getActionPlayers()
 			self.getComms()
 			self.status["booted"]=True
-			t=threading.Timer(20,self.poll)
-			t.start()
-
+			self.timer=GObject.timeout_add(20000,self.poll)
+			
 		#print self.status
 
+class Windowing:
+	def __init__(self):
+		self.build=Gtk.Builder()
+		self.matches=[]
+		self.build.add_from_file('test.glade')
+		self.window=self.build.get_object("boxy")
+		self.box=Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+		self.window.add(self.box)
+		self.build.connect_signals({"destroyit":self.destroy})
+		self.window.show_all()
+
+	def handleCheck(self,cb,obj):
+		global checkid
+		if cb.get_active()==True:
+			self.bootNewMatch(obj)
+		if cb.get_active()==False:
+			checkid=self.getId(obj)
+			print str(checkid)+"gya signal"
+			for mat in self.matches:
+				if mat.id==checkid:
+					mat.stopSignal()
+					break
+		#print "checked"
+
+	def getId(self,ele):
+		pattern=re.compile(r"([0-9]*)\.html")
+		id=re.search(pattern,ele.find('./guid').text)
+		return id.group(1)
+		
+
+	def newCheckBox(self,ele):
+		tmp=Gtk.CheckButton(ele.find('./title').text)
+		tmp.connect("toggled",self.handleCheck,ele)
+		tmp.show()
+		self.box.pack_start(tmp,True,True,0)
+	
+	def bootNewMatch(self,ele):
+		match=Match(ele)
+		match.boot()
+		self.matches.append(match)
+	
+	def destroy(self,k):
+		print "destroyed"
+		sys.exit()
 
 
 r=requests.get('http://static.espncricinfo.com/rss/livescores.xml')
-def listMatches(ele,index):
-	el=ele.findall('.//item')
-	lis=[]
-	for a in index:
-		lis.append(el[a])
-	return lis
 
 def exitOnInt(signal,frame):
 	print "exiting "
 	sys.exit(0)
 
+def lister(ele):
+	win=Windowing()
+	el=ele.findall('.//item')
+	for b in el:
+		win.newCheckBox(b)
+	Gtk.main()
 
 def sendmessage(title, message):
-	pynotify.init("cricketera")
-   	notice = pynotify.Notification(title, message,"/home/karnesh/Desktop/clock.png")
+	Notify.init("cricketera")
+   	notice = Notify.Notification.new(title, message,"/home/karnesh/Desktop/clock.png")
    	notice.show()
    	return
 
 try:
-#	sys.stdin.read(1)
-	matches=listMatches(xmla(r.text),[7,8,9])
-	for b in matches:
-		mat=Match(b)
-		mat.boot()
+	lister(xmla(r.text))
 	#cam=Match('http://localhost/test.html')
 	#cam.boot()
 	signal.signal(signal.SIGINT,exitOnInt)

@@ -4,12 +4,72 @@
 		"selected_items":
 		[
 			[
-				"sta",
-				"status"
+				"curre",
+				"currentBatting"
+			],
+			[
+				"cure",
+				"currentbowl"
 			],
 			[
 				"get",
-				"getHeadScore"
+				"getActionPlayers"
+			],
+			[
+				"pr",
+				"print"
+			],
+			[
+				"currentba",
+				"currentbats"
+			],
+			[
+				"in",
+				"inaction"
+			],
+			[
+				"cur",
+				"currentbats"
+			],
+			[
+				"exi",
+				"exit"
+			],
+			[
+				"curr",
+				"currentbats"
+			],
+			[
+				"E",
+				"Element"
+			],
+			[
+				"El",
+				"ElementTree"
+			],
+			[
+				"lis",
+				"listMatches"
+			],
+			[
+				"exit",
+				"exitOnInt"
+			],
+			[
+				"ex",
+				"exitOnInt"
+			],
+			[
+				"ur",
+				"url"
+			],
+			[
+				"find",
+				"find_all"
+			],
+			[
+				"sta",
+				"status"
 			],
 			[
 				"end",
@@ -48,20 +108,12 @@
 				"pollUrl"
 			],
 			[
-				"in",
-				"inngs"
-			],
-			[
 				"tea",
 				"team1"
 			],
 			[
 				"c",
 				"curbowling"
-			],
-			[
-				"cur",
-				"curbatting"
 			],
 			[
 				"bat",
@@ -80,16 +132,8 @@
 				"matchStatus"
 			],
 			[
-				"pr",
-				"property	New Property"
-			],
-			[
 				"xml",
 				"xmla"
-			],
-			[
-				"ex",
-				"extractTeams"
 			],
 			[
 				"fin",
@@ -126,10 +170,6 @@
 			[
 				"birds",
 				"birds-circle-loader-bg"
-			],
-			[
-				"curre",
-				"current"
 			],
 			[
 				"lve",
@@ -340,16 +380,8 @@
 				"odr_exit"
 			],
 			[
-				"curr",
-				"currentTween"
-			],
-			[
 				"new",
 				"newtween"
-			],
-			[
-				"cure",
-				"currentTween"
 			],
 			[
 				"path",
@@ -372,35 +404,27 @@
 	"buffers":
 	[
 		{
-			"file": "test.html",
+			"contents": "<tr>\n <td width=\"30\" align=\"right\"><p class=\"commsText\">10.6</p></td>\n <td width=\"100%\">\n  <p class=\"commsText\">Sammy to Ahmed Shehzad,\nno run,\nshort of a length, wide, punched away to point  </p>\n </td>\n</tr>\n\n<tr>\n <td width=\"30\" align=\"right\"><p class=\"commsText\">10.5</p></td>\n <td width=\"100%\">\n  <p class=\"commsText\">Sammy to Ahmed Shehzad,\n<span class=\"commsImportant\">OUT</span>,\nShehzad has sold his mate down the river. Played from deep inside the crease, he starts running for a single, only to realise he has hit it too close to Gayle at square leg. Now he sends Jamshed back, and his only chance is an error from West Indies. He almost gets it. Gayle lobs the ball back towards the non-striker's end, Sammy runs back to collect, but seems to have lost the ball. Somehow, though, the throw is a direct hit  </p>\n </td>\n</tr>\n\n<tr>\n <td colspan=\"2\"><p style=\"margin:4px 0 4px 0;\" class=\"commsText\">\n\"Seems some of the WI players don't want to risk injuring themselves and end up having to miss their various T20 tournaments...\" Randy, I can assure you Sammy is not one of them\n</p></td>\n</tr>\n\n<tr>\n <td width=\"30\" align=\"right\"><p class=\"commsText\">10.4</p></td>\n <td width=\"100%\">\n  <p class=\"commsText\">Sammy to Ahmed Shehzad,\n<span class=\"commsImportant\">FOUR</span>,\npowerful cut. Not very short, but he rocks back to create the length and smashes this past point for four. If you exclude Scotland, this is Pakistan's first 50 opening in 17 games  </p>\n </td>\n</tr>\n\n<tr>\n <td></td>\n <td>\n  <p class=\"commsText\"><b>Misbah-ul-Haq c DJ Bravo b Holder 63 (93b 5x4 1x6) SR: 67.74  </b></p>\n </td>\n</tr>\n\n<tr>\n <td colspan=\"2\" class=\"endofover\">\n<b>End of over 11</b> (4 runs)\n<span style=\"color:#123863; font-weight:bold;\">Pakistan 51/1</span> (192 runs required from 39 overs, RR: 4.63, RRR: 4.92)\n\n<tr>\n <td colspan=\"2\"><p style=\"margin:4px 0 4px 0;\" class=\"commsText\">\nNarine attacking now. A forward short leg comes in. A slip too. Stays round the wicket\n</p></td>\n</tr>\n\n<table cellspacing=\"0\" border=\"0\" style=\"margin-top: 5px;\">\n<tbody><tr>\n <td class=\"bbover\"><b>Ahmed Shehzad</b></td>\n <td class=\"bbover\">&nbsp;&nbsp;</td>\n <td class=\"bbover\">28* (41b 4x4)</td>\n <td class=\"bbover\">&nbsp;&nbsp;&nbsp;&nbsp;</td>\n <td class=\"bbover\"><b>DJG Sammy</b></td>\n <td class=\"bbover\">&nbsp;&nbsp;</td>\n <td class=\"bbover\">3-0-15-0</td>\n</tr>\n<tr>\n <td class=\"bbover\"><b>Mohammad Hafeez</b></td>\n <td class=\"bbover\">&nbsp;&nbsp;</td>\n <td class=\"bbover\">0* (0b)</td>\n <td class=\"bbover\">&nbsp;&nbsp;&nbsp;&nbsp;</td>\n <td class=\"bbover\"><b>SP Narine</b></td>\n <td class=\"bbover\">&nbsp;&nbsp;</td>\n <td class=\"bbover\">1-0-2-0</td>\n</tr>\n</tbody></table>\n\n </td>\n</tr>\n\n<item><title>Sri Lanka Under-19s 264/9 & 256/10 * v India Under-19s 503/7</title><link>http://www.cricinfo.om/ci/engine/match/647197.html?CMP=OTC-RSS</link><description>Sri Lanka Under-19s 264/9 & 256/10 * v India Under-19s503/7</description><guid>http://www.cricinfo.com/ci/engine/match/647197.html</guid></item>",
 			"settings":
 			{
-				"buffer_size": 22402,
-				"line_ending": "Unix"
+				"buffer_size": 2991,
+				"line_ending": "Unix",
+				"name": "<tr>"
 			}
 		},
 		{
-			"contents": "<tr>\n <td width=\"30\" align=\"right\"><p class=\"commsText\">10.6</p></td>\n <td width=\"100%\">\n  <p class=\"commsText\">Sammy to Ahmed Shehzad,\nno run,\nshort of a length, wide, punched away to point  </p>\n </td>\n</tr>\n\n<tr>\n <td width=\"30\" align=\"right\"><p class=\"commsText\">10.5</p></td>\n <td width=\"100%\">\n  <p class=\"commsText\">Sammy to Ahmed Shehzad,\n<span class=\"commsImportant\">OUT</span>,\nShehzad has sold his mate down the river. Played from deep inside the crease, he starts running for a single, only to realise he has hit it too close to Gayle at square leg. Now he sends Jamshed back, and his only chance is an error from West Indies. He almost gets it. Gayle lobs the ball back towards the non-striker's end, Sammy runs back to collect, but seems to have lost the ball. Somehow, though, the throw is a direct hit  </p>\n </td>\n</tr>\n\n<tr>\n <td colspan=\"2\"><p style=\"margin:4px 0 4px 0;\" class=\"commsText\">\n\"Seems some of the WI players don't want to risk injuring themselves and end up having to miss their various T20 tournaments...\" Randy, I can assure you Sammy is not one of them\n</p></td>\n</tr>\n\n<tr>\n <td width=\"30\" align=\"right\"><p class=\"commsText\">10.4</p></td>\n <td width=\"100%\">\n  <p class=\"commsText\">Sammy to Ahmed Shehzad,\n<span class=\"commsImportant\">FOUR</span>,\npowerful cut. Not very short, but he rocks back to create the length and smashes this past point for four. If you exclude Scotland, this is Pakistan's first 50 opening in 17 games  </p>\n </td>\n</tr>\n\n<tr>\n <td></td>\n <td>\n  <p class=\"commsText\"><b>Misbah-ul-Haq c DJ Bravo b Holder 63 (93b 5x4 1x6) SR: 67.74  </b></p>\n </td>\n</tr>\n\n<tr>\n <td colspan=\"2\" class=\"endofover\">\n<b>End of over 11</b> (4 runs)\n<span style=\"color:#123863; font-weight:bold;\">Pakistan 51/1</span> (192 runs required from 39 overs, RR: 4.63, RRR: 4.92)\n\n<tr>\n <td colspan=\"2\"><p style=\"margin:4px 0 4px 0;\" class=\"commsText\">\nNarine attacking now. A forward short leg comes in. A slip too. Stays round the wicket\n</p></td>\n</tr>\n\n<table cellspacing=\"0\" border=\"0\" style=\"margin-top: 5px;\">\n<tbody><tr>\n <td class=\"bbover\"><b>Ahmed Shehzad</b></td>\n <td class=\"bbover\">&nbsp;&nbsp;</td>\n <td class=\"bbover\">28* (41b 4x4)</td>\n <td class=\"bbover\">&nbsp;&nbsp;&nbsp;&nbsp;</td>\n <td class=\"bbover\"><b>DJG Sammy</b></td>\n <td class=\"bbover\">&nbsp;&nbsp;</td>\n <td class=\"bbover\">3-0-15-0</td>\n</tr>\n<tr>\n <td class=\"bbover\"><b>Mohammad Hafeez</b></td>\n <td class=\"bbover\">&nbsp;&nbsp;</td>\n <td class=\"bbover\">0* (0b)</td>\n <td class=\"bbover\">&nbsp;&nbsp;&nbsp;&nbsp;</td>\n <td class=\"bbover\"><b>SP Narine</b></td>\n <td class=\"bbover\">&nbsp;&nbsp;</td>\n <td class=\"bbover\">1-0-2-0</td>\n</tr>\n</tbody></table>\n\n </td>\n</tr>",
+			"file": "/opt/lampp/htdocs/test.html",
 			"settings":
 			{
-				"buffer_size": 2676,
-				"line_ending": "Unix",
-				"name": "<tr>"
+				"buffer_size": 23463,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "main.py",
 			"settings":
 			{
-				"buffer_size": 4729,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/karnesh/Documents/python-apps/weather-indicator/indicator_weather/indicator_weatherconfig.py",
-			"settings":
-			{
-				"buffer_size": 2351,
+				"buffer_size": 6366,
 				"line_ending": "Unix"
 			}
 		}
@@ -438,6 +462,9 @@
 	"file_history":
 	[
 		"/home/karnesh/Documents/python-apps/cricketera/test.py",
+		"/home/karnesh/Documents/python-apps/cricketera/test.html",
+		"/home/karnesh/Documents/python-apps/cricketera/test1.py",
+		"/home/karnesh/Documents/python-apps/weather-indicator/indicator_weather/indicator_weatherconfig.py",
 		"/home/karnesh/Desktop/noti.py",
 		"/home/karnesh/Documents/python-apps/cricketera/main.py",
 		"/home/karnesh/Documents/sublime projects/timeshift/js/timeshift.js",
@@ -540,48 +567,22 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "test.html",
 					"settings":
 					{
-						"buffer_size": 22402,
+						"buffer_size": 2991,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8993,
-								8993
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 2895.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"settings":
-					{
-						"buffer_size": 2676,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1498,
-								1498
+								1481,
+								1481
 							]
 						],
 						"settings":
@@ -590,7 +591,33 @@
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 204.0,
+						"translation.y": 102.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/opt/lampp/htdocs/test.html",
+					"settings":
+					{
+						"buffer_size": 23463,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								14757,
+								14757
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 6635.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -600,49 +627,21 @@
 					"file": "main.py",
 					"settings":
 					{
-						"buffer_size": 4729,
+						"buffer_size": 6366,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								100,
-								100
+								3714,
+								3714
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Python/Python.tmLanguage",
 							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/home/karnesh/Documents/python-apps/weather-indicator/indicator_weather/indicator_weatherconfig.py",
-					"settings":
-					{
-						"buffer_size": 2351,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,

@@ -1,16 +1,27 @@
-import signal,sys
+from gi.repository import Gtk,GObject
+import sys,threading,time
 
-def handleInt(sign,no):
-	print "interrupted"
+def destroy(k):
+	print "destroyed"
+	sys.exit()
 
-signal.signal(signal.SIGINT,handleInt)
+def poll():
+	print "called it "
+	GObject.timeout_add(5000,poll)
+	#t=threading.Timer(1,poll)
+	#t.start()
 
-try:
-	sys.stdin.read(1)
-except IOError:
-	print "io interrupt"
-else:
-	print "yoyo"
+start=time.time()	
+build=Gtk.Builder()
+build.add_from_file('test.glade')
+window=build.get_object("boxy")
+build.connect_signals({"destroyit":destroy})
+window.show_all()
+#t=threading.Timer(1,poll)
+#t.start()
+GObject.timeout_add(5000,poll)
+Gtk.main()
+
 
 
 
