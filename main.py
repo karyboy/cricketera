@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import threading 
 from gi.repository import Gtk,Notify,GObject
-import re
+import re,os
 import sys,signal
 from xml.etree.ElementTree import XML as xmla
 
@@ -127,13 +127,13 @@ class Match:
 		self.getActionPlayers()
 		self.getComms()
 		if self.status["over-ball"]!="matchover":
-			self.timer=GObject.timeout_add(5000,self.poll)
+			self.timer=GObject.timeout_add(20000,self.poll)
 		else:
 			print "going"
 		
 	def getComms(self):
 		tmp=self.scrape.find("table",{"class":"commsTable"})
-		print "polling"+"---"+self.status["t1head"]
+		#print "polling"+"---"+self.status["t1head"]
 		try:
 			over=tmp.tr.td.p
 			tmp1=tmp.tr.find("span",{"class":"commsImportant"})
@@ -245,7 +245,7 @@ def lister(ele):
 
 def sendmessage(title, message):
 	Notify.init("cricketera")
-   	notice = Notify.Notification.new(title, message,"/home/karnesh/Desktop/clock.png")
+	notice = Notify.Notification.new(title, message,os.path.dirname(os.path.realpath(__file__))+"/cricketera.jpg")
    	notice.show()
    	return
 
