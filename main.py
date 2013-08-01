@@ -39,7 +39,7 @@ class Match:
 
 		self.team1=tmp[0]
 		self.team2=tmp[1]
-		#print self.team2
+		#print self.team2     #this algorithm is not correct ... not required to change now
 		#print self.team1
 
 	def matchStatus(self):   # who is batting first and all
@@ -179,6 +179,7 @@ class Match:
 			self.getHeadScore()
 			self.getActionPlayers()
 			self.getComms()
+			print self.status
 			self.status["booted"]=True
 			self.timer=GObject.timeout_add(20000,self.poll)
 			
@@ -241,6 +242,9 @@ def lister(ele):
 	el=ele.findall('.//item')
 	for b in el:
 		win.newCheckBox(b)
+	from guppy import hpy
+	hp=hpy()
+	print hp.heap()
 	Gtk.main()
 
 def sendmessage(title, message):
@@ -250,9 +254,10 @@ def sendmessage(title, message):
    	return
 
 try:
-	lister(xmla(r.text))
 	#cam=Match('http://localhost/test.html')
 	#cam.boot()
+	lister(xmla(r.text))
+	
 	signal.signal(signal.SIGINT,exitOnInt)
 except KeyboardInterrupt:
 	sys.exit(0)
