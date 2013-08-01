@@ -16,8 +16,10 @@ class Match:
 		self.inaction={"currentbats":{"runs":"","balls":"","name":""},"currentbowl":""}
 
 	def pollUrl(self):
-		self.scrape=BeautifulSoup(requests.get(self.url+url_extend).text)
-	
+		try:
+			self.scrape=BeautifulSoup(requests.get(self.url+url_extend).text)
+		except Exception as e:
+			print "socket error"	
 	def setId(self):
 		pattern=re.compile(r"([0-9]*)\.html")
 		self.id=re.search(pattern,self.ele.find('./guid').text).group(1)
@@ -179,7 +181,6 @@ class Match:
 			self.getHeadScore()
 			self.getActionPlayers()
 			self.getComms()
-			print self.status
 			self.status["booted"]=True
 			self.timer=GObject.timeout_add(20000,self.poll)
 			
@@ -208,6 +209,18 @@ class Windowing:
 					mat.stopSignal()
 					break
 		#print "checked"
+
+	def stopAll(self):
+		print "stoping"
+		global checkid
+		for mat in self.matches:
+				checkid=mat.id
+				mat.stopSignal()
+
+	def restartAll(self):
+		print "restart"
+		for mat in self.matches:
+				self.bootNewMatch(mat.ele)
 
 	def getId(self,ele):
 		pattern=re.compile(r"([0-9]*)\.html")
@@ -243,9 +256,9 @@ def lister(ele):
 	for b in el:
 		win.newCheckBox(b)
 	from guppy import hpy
-	hp=hpy()
-	print hp.heap()
-	Gtk.main()
+	#hp=hpy()
+	#print hp.heap()
+	return win
 
 def sendmessage(title, message):
 	Notify.init("cricketera")
@@ -256,9 +269,10 @@ def sendmessage(title, message):
 try:
 	#cam=Match('http://localhost/test.html')
 	#cam.boot()
-	lister(xmla(r.text))
-	
+	winobj=lister(xmla(r.text))
+	Gtk.main()
 	signal.signal(signal.SIGINT,exitOnInt)
+	
 except KeyboardInterrupt:
 	sys.exit(0)
 
