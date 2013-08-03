@@ -207,6 +207,7 @@ class Windowing:
 			for mat in self.matches:
 				if mat.id==checkid:
 					mat.stopSignal()
+					self.matches.remove(mat)
 					break
 		#print "checked"
 
