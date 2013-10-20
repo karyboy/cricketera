@@ -190,7 +190,7 @@ class Windowing:
 	def __init__(self):
 		self.build=Gtk.Builder()
 		self.matches=[]
-		self.build.add_from_file('test.glade')
+		self.build.add_from_file('UI.glade')
 		self.window=self.build.get_object("boxy")
 		self.box=Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
 		self.window.add(self.box)
