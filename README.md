@@ -22,3 +22,7 @@ To run the application :
 from the command line type - 
 
 		python main.py
+		
+SCREENSHOTS
+
+![Alt text](/path/to/img.jpg)
