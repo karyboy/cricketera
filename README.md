@@ -25,4 +25,8 @@ from the command line type -
 		
 SCREENSHOTS
 
-![Alt text](/path/to/img.jpg)
+![screenshot 1](/screenshots/sc1.png)
+
+![screenshot 2](/screenshots/sc2.png)
+
+![screenshot 3](/screenshots/sc3.png)
