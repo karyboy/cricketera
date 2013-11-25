@@ -9,11 +9,16 @@ The user can select from a list of live matches . Thats it . The user will then 
 REQUIREMENTS:
 
 -Python
+
 -beautiful soup for python ( pip install BeautifulSoup )
+
 -libnotify 
+
 -gobject
+
 -requests for python ( pip install requests )
 
 To run the application :
 from the command line type - 
-		python main.py 
+
+		python main.py
